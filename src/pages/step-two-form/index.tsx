@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFeatureAStore } from "../../store/feature-a-store";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function Step2Form() {
   const navigate = useNavigate();
   const { getStepData, updateStepData, nextStep, prevStep } =
     useFeatureAStore();
+  const queryClient = useQueryClient();
+
+  const cachedData = queryClient.getMutationCache().getAll();
+
   const stepData = getStepData("a-2");
 
   console.log("step-2 data", stepData);
+  console.log("cachedData", cachedData);
 
   const [formData, setFormData] = useState({
     address: stepData?.data.address || "",

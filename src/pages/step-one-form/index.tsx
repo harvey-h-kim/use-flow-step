@@ -11,7 +11,9 @@ function Step1Form({ setLoading }: WithLoadingProps) {
     useFeatureAStore();
   const stepData = getStepData("a-1");
 
+  // cache key만 설정하면 된다.
   const { mutate } = useMutation({
+    mutationKey: ["newPost"],
     mutationFn: apiNewPost,
     onMutate: () => {
       console.log("onMutate!");

@@ -1,0 +1,205 @@
+/* 전체 컨테이너 스타일 */
+.flow-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* 스텝 폼 스타일 */
+.step-form {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step-form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.checkbox-group {
+  margin-top: 10px;
+}
+
+.checkbox-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.checkbox-label input {
+  margin-right: 10px;
+}
+
+/* 버튼 스타일 */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.next-button {
+  background-color: #4299e1;
+  color: white;
+}
+
+.next-button:hover {
+  background-color: #3182ce;
+}
+
+.back-button {
+  background-color: #cbd5e0;
+  color: #333;
+}
+
+.back-button:hover {
+  background-color: #a0aec0;
+}
+
+.confirm-button {
+  background-color: #48bb78;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #38a169;
+}
+
+.reset-button {
+  background-color: #f56565;
+  color: white;
+  margin-top: 10px;
+}
+
+.reset-button:hover {
+  background-color: #e53e3e;
+}
+
+/* 결과 페이지 스타일 */
+.result-summary {
+  margin-bottom: 30px;
+}
+
+.result-section {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.result-section h4 {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.completion-message {
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #c6f6d5;
+  border-radius: 4px;
+}
+
+.step-indicator {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.step-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.step.active .step-circle {
+  background-color: #4299e1;
+  color: white;
+}
+
+.step.completed .step-circle {
+  background-color: #48bb78;
+  color: white;
+}
+
+.step-label {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.step.active .step-label {
+  color: #4299e1;
+  font-weight: bold;
+}
+
+.step-line {
+  position: absolute;
+  top: 15px;
+  left: calc(50% + 15px);
+  right: calc(-50% + 15px);
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+
+.step-line.completed {
+  background-color: #48bb78;
+}

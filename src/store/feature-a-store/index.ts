@@ -7,7 +7,11 @@ export interface FeatureAData {
   "a-result": { confirmed: boolean };
 }
 
-export const useFeatureAStore = createFlowStore<FeatureAData>(
+export interface ApiResponses {
+  step1Response: { id: number; userId: number; title: string; body: string };
+}
+
+export const useFeatureAStore = createFlowStore<FeatureAData, ApiResponses>(
   ["a-1", "a-2", "a-3", "a-result"],
   "a-1"
 );

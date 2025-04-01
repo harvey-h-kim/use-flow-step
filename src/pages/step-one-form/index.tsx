@@ -1,11 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFeatureAStore } from "../../store/feature-a-store";
+import { useMutation } from "@tanstack/react-query";
+import { apiNewPost } from "../../apis";
+import { withLoading, WithLoadingProps } from "../../components/with-loading";
 
-function Step1Form() {
+function Step1Form({ setLoading }: WithLoadingProps) {
   const navigate = useNavigate();
-  const { getStepData, updateStepData, nextStep } = useFeatureAStore();
+  const { getStepData, updateStepData, nextStep, setApiResponse } =
+    useFeatureAStore();
   const stepData = getStepData("a-1");
+
+  const { mutate } = useMutation({
+    mutationFn: apiNewPost,
+    onMutate: () => {
+      console.log("onMutate!");
+      setLoading(true);
+    },
+    onSuccess: (data) => {
+      console.log("onSuccess!");
+      console.log("data", data);
+      setApiResponse("step1Response", data);
+      updateStepData("a-1", formData);
+      const next = nextStep();
+      navigate(`/feature-a/${next}`);
+      setLoading(false);
+    },
+  });
 
   console.log("step-1 data", stepData);
 
@@ -21,9 +42,7 @@ function Step1Form() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    updateStepData("a-1", formData);
-    const next = nextStep();
-    navigate(`/feature-a/${next}`);
+    mutate({ body: "body", title: "title", userId: 1 });
   };
 
   return (
@@ -64,4 +83,4 @@ function Step1Form() {
   );
 }
 
-export default Step1Form;
+export default withLoading(Step1Form);

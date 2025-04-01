@@ -5,7 +5,6 @@ interface StepData<T> {
   visited: boolean;
 }
 
-// 플로우 상태 인터페이스 (isValid 관련 로직 제거)
 interface FlowState<
   T extends Record<string, any>,
   R extends Record<string, any> = {}
